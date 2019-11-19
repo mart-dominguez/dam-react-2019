@@ -15,8 +15,9 @@ function ListaTareas(props) {
         props.editarTarea(i);
     }
 
-    const listaTareas = props.lista.map( (elemento, indice) => {        
-        return <tr key={indice}>
+    const listaTareas = props.lista.map( (elemento, indice) => {
+        const clave = elemento.id ? elemento.id : indice;        
+        return <tr key={clave}>
                         <td>{elemento.nombre}</td>
                         <td>{elemento.duracion}</td>
                         <td>{elemento.completada ? 'Terminada' : 'Pendiente'}</td>

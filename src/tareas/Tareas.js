@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import ListaTareas from './ListaTareas';
 import FormTareas from './FormTareas';
 
@@ -7,6 +7,11 @@ function Tareas() {
     const [modoEditar,setModoEditar] = useState(false);
     const [indiceEditar,setIndiceEditar] = useState(-1);
     const [listaTareas,setListaTareas] = useState([]);
+
+    // este hook se ejecuta siempre
+    useEffect(() => {
+        document.title = `Tareas ${listaTareas.length}`;
+    });
 
     const doNuevaTarea = (valor) => {
         setModoAlta(valor);
